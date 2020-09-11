@@ -838,10 +838,9 @@ export default class App extends Component {
             //File Name
             fileName: `${Date.now()}_Orçamento`,
             //File directory
-            directory: 'docsPDF',
+            directory: 'Documents/orcamentos',
         };
         let file = await RNHTMLtoPDF.convert(options);
-        console.log(file.filePath);
         this.setState({ filePath: file.filePath });
     }
     render() {
@@ -850,7 +849,7 @@ export default class App extends Component {
                 <View style={styles.Top}>
                     <Text style={styles.TextTop}>Criador Orçamentos em PDF - Personal Car</Text>
                 </View>
-                <ScrollView>
+                <ScrollView keyboardShouldPersistTaps="handled">
                     <View style={styles.MainContainer}>
                         <View style={styles.Data}>
                             <TextInput style={styles.TextInputData} value={this.state.data} placeholder="Data" onChangeText={this.setData} />
@@ -860,16 +859,16 @@ export default class App extends Component {
                         </View>
                         <TextInput style={styles.TextInput} placeholder="Nome do cliente" onChangeText={this.setName} />
                         <TextInput style={styles.TextInput} placeholder="Endereço" onChangeText={this.setEndereco} />
-                        <TextInput style={styles.TextInput} placeholder="Numero da casa" onChangeText={this.setCasaNum} />
+                        <TextInput style={styles.TextInput} keyboardType="numeric" placeholder="Numero da casa" onChangeText={this.setCasaNum} />
                         <TextInput style={styles.TextInput} placeholder="Bairro" onChangeText={this.setBairro} />
-                        <TextInput style={styles.TextInput} placeholder="CEP" onChangeText={this.setCep} />
+                        <TextInput style={styles.TextInput} keyboardType="numeric" placeholder="CEP" onChangeText={this.setCep} />
                         <TextInput style={styles.TextInput} placeholder="Cidade" onChangeText={this.setCidade} />
                         <TextInput style={styles.TextInput} placeholder="Estado" onChangeText={this.setEstado} />
-                        <TextInput style={styles.TextInput} placeholder="Fone" onChangeText={this.setFone} />
+                        <TextInput style={styles.TextInput} keyboardType="numeric" placeholder="Fone" onChangeText={this.setFone} />
                         <TextInput style={styles.TextInput} placeholder="Condição de pagamento" onChangeText={this.setPag} />
                         <TextInput style={styles.TextInput} placeholder="Prazo de entrega" onChangeText={this.setPrazo} />
-                        <TextInput style={styles.TextInput} placeholder="CNPJ/CFP" onChangeText={this.setCpf} />
-                        <TextInput style={styles.TextInput} placeholder="Inscr. Est./ RG" onChangeText={this.setRg} />
+                        <TextInput style={styles.TextInput} keyboardType="numeric" placeholder="CNPJ/CFP" onChangeText={this.setCpf} />
+                        <TextInput style={styles.TextInput} keyboardType="numeric" placeholder="Inscr. Est./ RG" onChangeText={this.setRg} />
                         <TextInput style={styles.TextInput} placeholder="Modelo do carro" onChangeText={this.setModelCar} />
                         <TextInput style={styles.TextInput} placeholder="Placa do carro" onChangeText={this.setPlacaCar} />
                     </View>
@@ -978,11 +977,11 @@ export default class App extends Component {
                         </View>
                     </View>
                     <View style={styles.Table}>
-                        <TextInput style={styles.TableLine} placeholder="Informe a linha para alteração" onChangeText={this.setLine} />
-                        <TextInput style={styles.TableLine} placeholder="Quantidade" onChangeText={this.addQuanti} />
+                        <TextInput style={styles.TableLine} keyboardType="numeric" placeholder="Informe a linha para alteração" onChangeText={this.setLine} />
+                        <TextInput style={styles.TableLine} keyboardType="numeric" placeholder="Quantidade" onChangeText={this.addQuanti} />
                         <TextInput style={styles.TableLine} placeholder="Descrição do serviços" onChangeText={this.addDescri} />
-                        <TextInput style={styles.TableLine} placeholder="Valor Unico" onChangeText={this.addValorunico} />
-                        <TextInput style={styles.TableLine} placeholder="Valor Total" onChangeText={this.addValortotal} />
+                        <TextInput style={styles.TableLine} keyboardType="numeric" placeholder="Valor Unico" onChangeText={this.addValorunico} />
+                        <TextInput style={styles.TableLine} keyboardType="numeric" placeholder="Valor Total" onChangeText={this.addValortotal} />
                         <View style={styles.ButtonFinish}>
                             <TouchableOpacity style={styles.Button} onPress={this.addLine}>
                                 <Text style={styles.TextButton}>Adicionar na linha</Text>
